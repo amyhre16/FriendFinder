@@ -1,0 +1,5 @@
+Consider using two tables to store data: one for name, pic; other for answer choices (look into how the relation would work)
+
+when user clicks submit, check compatibility, display match, then push new user to table
+
+to check compatibility, compare each potential match using Math.abs(). Store best match in object w/ id and compatibility score. Check each compatibility score against the current best match
