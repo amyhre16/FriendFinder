@@ -31,8 +31,8 @@ $(document).ready(function() {
 					parseInt($('#q10').val().trim())
 				];
 			var newUser = {
-				"name": $('#name').val().trim(),
-				"picture": $('#photo').val().trim(),
+				name: $('#name').val().trim(),
+				picture: $('#photo').val().trim(),
 				scores: scoresArr
 			};
 			console.log(newUser);
