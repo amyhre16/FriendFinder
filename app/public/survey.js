@@ -35,9 +35,11 @@ $(document).ready(function() {
 				picture: $('#photo').val().trim(),
 				scores: scoresArr
 			};
-			console.log(newUser);
+			// console.log(newUser);
 
 			$.post(window.location.origin + "/api/friends", newUser).done(function(bestMatch) {
+				console.log("From survey.js");
+				console.log(newUser);
 				$('#matchName').text(bestMatch.name);
 				$('#matchImg').attr("src", bestMatch.picture);
 				console.log(bestMatch.picture);

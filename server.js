@@ -12,7 +12,7 @@ var app = express();
 app.use(express.static(__dirname + "/app/public"));
 
 // Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var htmlRoutes = require('./app/routing/htmlRoutes.js');
 var apiRoutes = require('./app/routing/apiRoutes.js');
