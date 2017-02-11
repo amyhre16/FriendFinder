@@ -19,8 +19,8 @@ $(document).ready(function() {
 		}
 		if (validateForm()) {
 			var newUser = {
-				name: $('#name').val().trim(),
-				picture: $('#photo').val().trim(),
+				"name": $('#name').val().trim(),
+				"picture": $('#photo').val().trim(),
 				scores: [
 					parseInt($('#q1').val().trim()),
 					parseInt($('#q2').val().trim()),
@@ -34,11 +34,12 @@ $(document).ready(function() {
 					parseInt($('#q10').val().trim())
 				]
 			};
+			console.log(newUser);
 
 			$.post(window.location.origin + "/api/friends", newUser, function(bestMatch) {
 				$('#matchName').text(bestMatch.name);
-				$('matchImg').attr('src', bestMatch.picture);
-
+				$('#matchImg').attr("src", bestMatch.picture);
+				console.log(bestMatch.picture);
 				$('#resultsModal').modal('toggle');
 			});
 		}

@@ -10,23 +10,20 @@ exports.getFriends = app.get('/api/friends', function(req, res) {
 
 exports.postFriends = app.post('/api/friends', function(req, res) {
 	var newUser = req.body;
-	// var friends =
-	console.log(friendsData.friends[0].scores);
 
 	// start off with a lowest score being 0 and the best match being the first friend in the array
 	var lowScore = 0;
 	var bestMatch = 0;
 
 	// loop through the first friend's scores to set an inital lowest score
-	for (var j = 0; j < friendsData.friends[0].scores.length; j++) {
-		console.log("Hi");
-		// lowScore += Math.abs(newUser.scores[j] - friendsData.friends[0].scores[j]);
+	for (var j = 0; j < friendsData.friends.scores; j++) {
+		lowScore += Math.abs(newUser.scores[j] - friendsData.friends[0].scores[j]);
 	}
 
 	// loop through the rest of the friends to check to see if any of them have a lower score (i.e., is a better match)
-	for (var i = 1; i < friendsData.friends[i].length; i++) {
+	for (var i = 1; i < friendsData.friends; i++) {
 		var sum = 0;
-		for (var j = 0; j < friendsData.friends[i].scores.length; j++) {
+		for (var j = 0; j < friendsData.friends.scores; j++) {
 			sum += Math.abs(parseInt(newUser.scores[j]) - friendsData.friends[i].scores[j]);
 		}
 		console.log("Current best: " + lowScore);
