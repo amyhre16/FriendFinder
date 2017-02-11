@@ -18,10 +18,7 @@ $(document).ready(function() {
 			return isValid;
 		}
 		if (validateForm()) {
-			var newUser = {
-				"name": $('#name').val().trim(),
-				"picture": $('#photo').val().trim(),
-				scores: [
+			var scoresArr = [
 					parseInt($('#q1').val().trim()),
 					parseInt($('#q2').val().trim()),
 					parseInt($('#q3').val().trim()),
@@ -32,11 +29,15 @@ $(document).ready(function() {
 					parseInt($('#q8').val().trim()),
 					parseInt($('#q9').val().trim()),
 					parseInt($('#q10').val().trim())
-				]
+				];
+			var newUser = {
+				"name": $('#name').val().trim(),
+				"picture": $('#photo').val().trim(),
+				scores: scoresArr
 			};
 			console.log(newUser);
 
-			$.post(window.location.origin + "/api/friends", newUser, function(bestMatch) {
+			$.post(window.location.origin + "/api/friends", newUser).done(function(bestMatch) {
 				$('#matchName').text(bestMatch.name);
 				$('#matchImg').attr("src", bestMatch.picture);
 				console.log(bestMatch.picture);
