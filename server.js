@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var htmlRoutes = require('./app/routing/htmlRoutes.js');
 var apiRoutes = require('./app/routing/apiRoutes.js');
-
 app.use('/', htmlRoutes.home);
 app.use('/', htmlRoutes.survey);
 
