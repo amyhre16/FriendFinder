@@ -1,3 +1,4 @@
+// export the json 
 exports.friends = [
 	{
 		"name": "Harry",

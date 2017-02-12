@@ -1,14 +1,24 @@
 'use strict';
+
+// import packages
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+
+// import 
 var friendsData = require('../data/friends.js');
 
+// create a connection to the server
+var app = express();
+
+// export the get request that runs the callback function when /api/friends is visited
 exports.getFriends = app.get('/api/friends', function(req, res) {
+	// display the friends json on the page
 	res.json(friendsData.friends);
 });
 
+// export the get request that runs the callback function when /api/friends is visited
 exports.postFriends = app.post('/api/friends', function(req, res) {
+	// assign the body of the request to newUser
 	var newUser = req.body;
 
 	// start off with a lowest score being 0 and the best match being the first friend in the array
